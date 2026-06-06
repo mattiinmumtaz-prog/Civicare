@@ -48,7 +48,7 @@ export default function ChatBot() {
       // =========================
       const response = await fetch(
 
-        `http://localhost:8080/api/chatbot/send?userId=${localStorage.getItem("userId")}`,
+        `/api/chatbot/send?userId=${localStorage.getItem("userId")}`,
 
         {
           method: "POST",

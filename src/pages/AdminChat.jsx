@@ -22,7 +22,7 @@ export default function AdminChat() {
     try {
 
       const res = await axios.get(
-        "http://localhost:8080/api/chat"
+        "https://civicare-production.up.railway.app"
       );
 
       setChat(res.data);
@@ -76,7 +76,7 @@ export default function AdminChat() {
     try {
 
       await axios.post(
-        "http://localhost:8080/api/chat",
+        "https://civicare-production.up.railway.app",
         {
           username: selectedUser,
           sender: "Admin",

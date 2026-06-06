@@ -33,7 +33,7 @@ export default function CSAdmin() {
     try {
 
       const response = await axios.get(
-        `http://localhost:8080/api/chat/${username}`
+        `https://civicare-production.up.railway.app${username}`
       );
 
       setMessages(response.data);
@@ -74,7 +74,7 @@ export default function CSAdmin() {
       // KIRIM KE BACKEND
       // =========================
       await axios.post(
-        "http://localhost:8080/api/chat",
+        "https://civicare-production.up.railway.app",
         {
           username: username,
           sender: username,
