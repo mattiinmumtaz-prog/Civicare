@@ -1,0 +1,37 @@
+package com.civicare.model;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+
+@MappedSuperclass
+@Getter @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public abstract class AbstractUser {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank
+    @Column(nullable = false)
+    private String nama;
+
+    @Email
+    @NotBlank
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @NotBlank
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
+
+    // Abstraction: wajib diimplementasikan subclass
+    public abstract String getDescription();
+}
